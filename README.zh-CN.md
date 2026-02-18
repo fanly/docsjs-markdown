@@ -1,7 +1,7 @@
 # @coding01/docsjs-markdown
 
-Markdown toolkit built for docsjs workflows.
-Convert docsjs HTML snapshots or DOCX files into Markdown with extensible rules.
+面向 docsjs 生态的 Markdown 工具包。
+可将 docsjs HTML 快照或 DOCX 文件转换为 Markdown，并支持可扩展规则。
 
 [![npm version](https://img.shields.io/npm/v/@coding01/docsjs-markdown)](https://www.npmjs.com/package/@coding01/docsjs-markdown)
 [![npm downloads](https://img.shields.io/npm/dm/@coding01/docsjs-markdown)](https://www.npmjs.com/package/@coding01/docsjs-markdown)
@@ -9,25 +9,25 @@ Convert docsjs HTML snapshots or DOCX files into Markdown with extensible rules.
 
 ---
 
-[中文文档](./README.zh-CN.md)
+[English README](./README.md)
 
-## What You Get
+## 能力概览
 
-- HTML -> Markdown core entry: `@coding01/docsjs-markdown`
-- DOCX -> Markdown adapter entry: `@coding01/docsjs-markdown/docx`
-- Rule-based conversion architecture (custom per-tag rules)
-- Optional YAML frontmatter generation
-- CLI for direct `.docx -> .md` conversion
+- HTML -> Markdown 主入口：`@coding01/docsjs-markdown`
+- DOCX -> Markdown 适配入口：`@coding01/docsjs-markdown/docx`
+- 基于规则的转换架构（支持按标签自定义规则）
+- 可选 YAML frontmatter 生成
+- CLI 支持直接 `.docx -> .md`
 
-## Installation
+## 安装
 
 ```bash
 npm i @coding01/docsjs-markdown
 ```
 
-## Quick Start
+## 快速开始
 
-### HTML to Markdown
+### HTML 转 Markdown
 
 ```ts
 import { htmlToGfm, htmlToStandardMarkdown } from "@coding01/docsjs-markdown";
@@ -37,7 +37,7 @@ const gfm = htmlToGfm(html);
 const standard = htmlToStandardMarkdown(html);
 ```
 
-### DOCX to Markdown
+### DOCX 转 Markdown
 
 ```ts
 import { docxToMarkdown, docxToMarkdownWithMeta } from "@coding01/docsjs-markdown/docx";
@@ -57,7 +57,7 @@ const richResult = await docxToMarkdownWithMeta(file, {
 });
 ```
 
-### Custom Rules
+### 自定义规则
 
 ```ts
 import { htmlToMarkdown } from "@coding01/docsjs-markdown";
@@ -71,7 +71,7 @@ const markdown = htmlToMarkdown("<mark>hit</mark>", {
 
 ## API
 
-### Main Entry: `@coding01/docsjs-markdown`
+### 主入口：`@coding01/docsjs-markdown`
 
 - `htmlToMarkdown(html, options)`
 - `htmlToMarkdownWithMeta(html, options)`
@@ -79,19 +79,19 @@ const markdown = htmlToMarkdown("<mark>hit</mark>", {
 - `htmlToStandardMarkdown(html, options)`
 - `generateFrontmatter(meta)`
 
-### Sub Entry: `@coding01/docsjs-markdown/docx`
+### 子入口：`@coding01/docsjs-markdown/docx`
 
 - `docxToMarkdown(file, options)`
 - `docxToMarkdownWithMeta(file, options)`
 
-### Options
+### 配置项
 
 - `format`: `"standard" | "gfm"`
 - `frontmatter`: boolean
-- `metadata`: custom metadata object
-- `rules`: custom tag conversion rules
-- `includeParseReport`: include docsjs parse report (docx entry)
-- `sanitizationProfile`: `"fidelity-first" | "strict"` (docx entry)
+- `metadata`: 自定义元数据
+- `rules`: 自定义标签转换规则
+- `includeParseReport`: 是否返回 docsjs 解析报告（docx 入口）
+- `sanitizationProfile`: `"fidelity-first" | "strict"`（docx 入口）
 
 ## CLI
 
@@ -99,7 +99,7 @@ const markdown = htmlToMarkdown("<mark>hit</mark>", {
 docsjs-markdown ./input.docx -o ./output.md --frontmatter --include-parse-report
 ```
 
-Options:
+可用参数：
 
 - `-o, --output <file>`
 - `-f, --format <gfm|standard>`
@@ -108,7 +108,7 @@ Options:
 - `--strict`
 - `-h, --help`
 
-## Development
+## 开发
 
 ```bash
 npm install
@@ -116,9 +116,9 @@ npm run verify
 npm run build
 ```
 
-## Publishing
+## 发布规则
 
-### Manual
+### 手动发布
 
 ```bash
 npm version patch
@@ -126,11 +126,11 @@ git push origin main --follow-tags
 npm publish --access public
 ```
 
-### Suggested CI Rule (same as docsjs)
+### 建议 CI 规则（与 docsjs 一致）
 
-- Trigger by tag: `v*.*.*`
-- Run quality gate: `npm run verify`
-- Publish package: `npm publish --access public`
+- 触发条件：tag `v*.*.*`
+- 质量门：`npm run verify`
+- 发包：`npm publish --access public`
 
 ## License
 

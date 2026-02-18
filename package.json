@@ -1,7 +1,7 @@
 {
-  "name": "@fanly/docsjs-markdown",
+  "name": "@coding01/docsjs-markdown",
   "version": "1.0.0",
-  "description": "Convert docsjs HTML snapshots to Markdown (Standard, GFM, YAML frontmatter)",
+  "description": "Convert docsjs HTML snapshots and DOCX files to Markdown (Standard, GFM, YAML frontmatter)",
   "license": "MIT",
   "author": "fanly <fanly@outlook.com>",
   "type": "module",
@@ -9,17 +9,24 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "types": "dist/index.d.ts",
+  "bin": {
+    "docsjs-markdown": "dist/cli.js"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
+    },
+    "./docx": {
+      "types": "./dist/docx.d.ts",
+      "import": "./dist/docx.js",
+      "require": "./dist/docx.cjs"
     }
   },
   "files": [
     "dist"
   ],
-  "license": "MIT",
   "scripts": {
     "lint": "eslint src",
     "lint:fix": "eslint src --fix",
@@ -35,18 +42,28 @@
     "markdown",
     "gfm",
     "converter",
-    "html-to-markdown"
+    "html-to-markdown",
+    "docx-to-markdown"
   ],
   "homepage": "https://docsjs.coding01.cn/",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fanly/docsjs-markdown.git"
   },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@coding01/docsjs": "^0.2.1",
+    "jsdom": "^26.1.0"
+  },
   "devDependencies": {
+    "@eslint/js": "^9.18.0",
     "@types/node": "^22.10.5",
     "eslint": "^9.18.0",
+    "tsup": "^8.3.5",
     "typescript": "^5.7.3",
-    "vitest": "^3.2.4",
-    "tsup": "^8.3.5"
+    "typescript-eslint": "^8.20.0",
+    "vitest": "^3.2.4"
   }
 }
