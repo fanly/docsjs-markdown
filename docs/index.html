@@ -14,6 +14,10 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css"
+    />
     <style>
       :root {
         --bg: #fffdf7;
@@ -238,9 +242,10 @@
       .code-content { padding: 20px; overflow-x: auto; }
 
       .code-content pre,
-      .compare pre {
+      .code-content code,
+      .compare pre,
+      .compare code {
         margin: 0;
-        color: #e3e5e9;
         font-family: "IBM Plex Mono", monospace;
         font-size: 13px;
         line-height: 1.7;
@@ -383,12 +388,12 @@
         <div class="code-window">
           <div class="code-header"><span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span></div>
           <div class="code-content">
-            <pre id="example-code">import { htmlToGfm } from "@coding01/docsjs-markdown";
+            <pre><code id="example-code" class="language-ts">import { htmlToGfm } from "@coding01/docsjs-markdown";
 import { docxToMarkdown } from "@coding01/docsjs-markdown/docx";
 
 const html = docsjsEditor.getSnapshot();
 const markdown = htmlToGfm(html, { frontmatter: true });
-const fromDocx = await docxToMarkdown(file, { format: "gfm" });</pre>
+const fromDocx = await docxToMarkdown(file, { format: "gfm" });</code></pre>
           </div>
         </div>
 
@@ -396,25 +401,25 @@ const fromDocx = await docxToMarkdown(file, { format: "gfm" });</pre>
           <div class="panel">
             <div class="panel-title" data-i18n="leftTitle">Left: docsjs HTML snapshot</div>
             <div class="panel-body">
-              <pre>&lt;h1&gt;Release Plan&lt;/h1&gt;
+              <pre><code class="language-markup">&lt;h1&gt;Release Plan&lt;/h1&gt;
 &lt;p&gt;This sprint shipped parser and render upgrades.&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;DOCX semantic fidelity&lt;/li&gt;
   &lt;li&gt;List/table parity&lt;/li&gt;
   &lt;li&gt;Markdown output&lt;/li&gt;
-&lt;/ul&gt;</pre>
+&lt;/ul&gt;</code></pre>
             </div>
           </div>
           <div class="panel">
             <div class="panel-title" data-i18n="rightTitle">Right: markdown output</div>
             <div class="panel-body">
-              <pre># Release Plan
+              <pre><code class="language-markdown"># Release Plan
 
 This sprint shipped parser and render upgrades.
 
 - DOCX semantic fidelity
 - List/table parity
-- Markdown output</pre>
+- Markdown output</code></pre>
             </div>
           </div>
         </div>
@@ -476,6 +481,12 @@ This sprint shipped parser and render upgrades.
       </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-core.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-clike.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-typescript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markup.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-markdown.min.js"></script>
     <script>
       const i18n = {
         en: {
@@ -578,6 +589,9 @@ This sprint shipped parser and render upgrades.
       });
 
       switchLang(currentLang);
+      if (window.Prism) {
+        window.Prism.highlightAll();
+      }
     </script>
   </body>
 </html>
