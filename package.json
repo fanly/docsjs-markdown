@@ -1,6 +1,6 @@
 {
   "name": "@coding01/docsjs-markdown",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert docsjs HTML snapshots and DOCX files to Markdown (Standard, GFM, YAML frontmatter)",
   "license": "MIT",
   "author": "fanly <fanly@outlook.com>",
