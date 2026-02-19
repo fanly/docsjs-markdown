@@ -132,6 +132,19 @@ npm publish --access public
 - 质量门：`npm run verify`
 - 发包：`npm publish --access public`
 
+### GitHub Packages（仓库侧边栏 Packages）
+
+- 工作流：`.github/workflows/publish-github-packages.yml`
+- 触发条件：tag `v*.*.*` 或手动触发
+- 目标仓库：`https://npm.pkg.github.com`
+- GitHub Packages 包名：`@fanly/docsjs-markdown`
+
 ## License
 
 MIT
+
+## 打赏支持
+
+如果这个项目帮你节省了时间，欢迎打赏支持。
+
+![支持 docsjs](https://image.coding01.cn/Coding01%20%E8%B5%9E%E8%B5%8F%E7%A0%81.png)

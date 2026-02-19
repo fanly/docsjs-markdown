@@ -132,6 +132,19 @@ npm publish --access public
 - Run quality gate: `npm run verify`
 - Publish package: `npm publish --access public`
 
+### GitHub Packages (repo sidebar "Packages")
+
+- Workflow: `.github/workflows/publish-github-packages.yml`
+- Trigger: tag `v*.*.*` or manual run
+- Target registry: `https://npm.pkg.github.com`
+- Package name for GitHub Packages: `@fanly/docsjs-markdown`
+
 ## License
 
 MIT
+
+## Support This Project
+
+If this project saves your time, a small tip is appreciated.
+
+![Support docsjs](https://image.coding01.cn/Coding01%20%E8%B5%9E%E8%B5%8F%E7%A0%81.png)
