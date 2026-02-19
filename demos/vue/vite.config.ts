@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [vue()],
   resolve: {
     alias: {
-      '@fanly/docsjs-markdown': '../../src/index.ts'
+      '@coding01/docsjs-markdown': '../../src/index.ts'
     }
   }
 });

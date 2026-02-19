@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>docsjs-markdown</title>
+    <style>
+      :root {
+        --bg: #f4f8f6;
+        --card: #ffffff;
+        --ink: #12231f;
+        --muted: #45615b;
+        --brand: #0e8b78;
+        --brand-2: #0a6b5c;
+        --line: #d6e4df;
+        --soft: #e9f2ef;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: "Avenir Next", "Segoe UI", "PingFang SC", sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 0%, #d5efe7 0%, transparent 44%),
+          radial-gradient(circle at 88% 100%, #d2ece5 0%, transparent 41%),
+          var(--bg);
+      }
+      .wrap { max-width: 1080px; margin: 0 auto; padding: 28px 18px 64px; }
+      .topbar { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+      .logo { font-weight: 800; letter-spacing: 0.3px; font-size: 18px; }
+      .lang { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; overflow: hidden; background: var(--card); }
+      .lang button {
+        border: 0; background: transparent; padding: 7px 14px; cursor: pointer; color: var(--muted); font-weight: 600;
+      }
+      .lang button.active { background: var(--brand); color: #fff; }
+      .hero {
+        margin-top: 22px;
+        padding: 32px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: linear-gradient(120deg, #ffffff 0%, #f1f9f5 100%);
+        box-shadow: 0 14px 34px rgba(23, 68, 58, 0.08);
+      }
+      h1 { margin: 0; font-size: clamp(32px, 6vw, 54px); line-height: 1.02; }
+      .subtitle { margin: 14px 0 0; color: var(--muted); font-size: 17px; }
+      .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px; }
+      .btn {
+        text-decoration: none; border-radius: 10px; padding: 11px 15px; font-weight: 700; border: 1px solid var(--line);
+      }
+      .btn.primary { background: var(--brand); color: #fff; border-color: var(--brand); }
+      .btn.ghost { background: var(--card); color: var(--brand-2); }
+      .grid { margin-top: 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 15px;
+      }
+      .card h3 { margin: 0 0 7px; font-size: 17px; }
+      .card p { margin: 0; color: var(--muted); font-size: 14px; }
+      .section {
+        margin-top: 16px;
+        background: var(--card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+      }
+      .section h2 { margin: 0 0 10px; font-size: 22px; }
+      pre {
+        margin: 10px 0 0;
+        padding: 12px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: var(--soft);
+        overflow-x: auto;
+        font-size: 13px;
+      }
+      ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
+      footer { margin-top: 18px; color: var(--muted); font-size: 13px; }
+      @media (max-width: 860px) {
+        .grid { grid-template-columns: 1fr; }
+        .hero { padding: 24px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="logo">@coding01/docsjs-markdown</div>
+        <div class="lang">
+          <button id="lang-en" class="active">EN</button>
+          <button id="lang-zh">中文</button>
+        </div>
+      </div>
+
+      <section class="hero">
+        <h1 id="hero-title">Markdown Toolkit For docsjs</h1>
+        <p id="hero-subtitle" class="subtitle">
+          Convert docsjs HTML snapshots or DOCX into clean Markdown with customizable rules.
+        </p>
+        <div class="actions">
+          <a class="btn primary" href="https://www.npmjs.com/package/@coding01/docsjs-markdown" target="_blank" rel="noreferrer" id="btn-npm">View on npm</a>
+          <a class="btn ghost" href="https://github.com/fanly/docsjs-markdown" target="_blank" rel="noreferrer" id="btn-github">GitHub</a>
+          <a class="btn ghost" href="https://github.com/fanly/docsjs-markdown#readme" target="_blank" rel="noreferrer" id="btn-docs">README</a>
+        </div>
+      </section>
+
+      <div class="grid">
+        <article class="card">
+          <h3 id="f1-title">Dual Entry Design</h3>
+          <p id="f1-desc">Use core HTML conversion from main entry, or DOCX conversion from <code>/docx</code> subpath.</p>
+        </article>
+        <article class="card">
+          <h3 id="f2-title">Rule Plugins</h3>
+          <p id="f2-desc">Override conversion by HTML tag with custom rules for business-specific markdown styles.</p>
+        </article>
+        <article class="card">
+          <h3 id="f3-title">CLI Included</h3>
+          <p id="f3-desc">Run direct conversion from terminal with frontmatter and parse-report options.</p>
+        </article>
+      </div>
+
+      <section class="section">
+        <h2 id="code-title">Quick Example</h2>
+        <pre><code id="code-block">import { htmlToGfm } from "@coding01/docsjs-markdown";
+import { docxToMarkdown } from "@coding01/docsjs-markdown/docx";
+
+const md = htmlToGfm("&lt;h1&gt;Hello&lt;/h1&gt;");
+const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
+      </section>
+
+      <section class="section">
+        <h2 id="cli-title">CLI</h2>
+        <pre><code>docsjs-markdown ./input.docx -o ./output.md --frontmatter --include-parse-report</code></pre>
+      </section>
+
+      <section class="section">
+        <h2 id="rules-title">Release Rules</h2>
+        <ul>
+          <li id="r1">`main / codex/**` push: run CI quality gate</li>
+          <li id="r2">`v*.*.*` tag push: publish to npm</li>
+          <li id="r3">`docs/**` updates on main: deploy this page to GitHub Pages</li>
+        </ul>
+      </section>
+
+      <footer id="footer">docsjs-markdown · scoped package for @coding01 ecosystem</footer>
+    </div>
+
+    <script>
+      const TEXT = {
+        en: {
+          heroTitle: "Markdown Toolkit For docsjs",
+          heroSubtitle: "Convert docsjs HTML snapshots or DOCX into clean Markdown with customizable rules.",
+          npm: "View on npm",
+          github: "GitHub",
+          docs: "README",
+          f1Title: "Dual Entry Design",
+          f1Desc: "Use core HTML conversion from main entry, or DOCX conversion from /docx subpath.",
+          f2Title: "Rule Plugins",
+          f2Desc: "Override conversion by HTML tag with custom rules for business-specific markdown styles.",
+          f3Title: "CLI Included",
+          f3Desc: "Run direct conversion from terminal with frontmatter and parse-report options.",
+          codeTitle: "Quick Example",
+          cliTitle: "CLI",
+          rulesTitle: "Release Rules",
+          r1: "`main / codex/**` push: run CI quality gate",
+          r2: "`v*.*.*` tag push: publish to npm",
+          r3: "`docs/**` updates on main: deploy this page to GitHub Pages",
+          footer: "docsjs-markdown · scoped package for @coding01 ecosystem"
+        },
+        zh: {
+          heroTitle: "docsjs 专用 Markdown 工具",
+          heroSubtitle: "将 docsjs 的 HTML 快照或 DOCX 转为高质量 Markdown，并支持自定义转换规则。",
+          npm: "查看 npm",
+          github: "GitHub",
+          docs: "README",
+          f1Title: "双入口架构",
+          f1Desc: "主入口负责 HTML 转换，/docx 子入口负责 DOCX 转 Markdown。",
+          f2Title: "规则插件化",
+          f2Desc: "可按 HTML 标签覆写转换逻辑，适配业务 Markdown 规范。",
+          f3Title: "内置 CLI",
+          f3Desc: "支持命令行直接转换，并可附带 frontmatter 与解析报告。",
+          codeTitle: "快速示例",
+          cliTitle: "命令行",
+          rulesTitle: "发布规则",
+          r1: "`main / codex/**` 推送：执行 CI 质量门",
+          r2: "`v*.*.*` tag 推送：发布到 npm",
+          r3: "`docs/**` 在 main 更新：部署本页到 GitHub Pages",
+          footer: "docsjs-markdown · @coding01 生态专用包"
+        }
+      };
+
+      const ids = {
+        heroTitle: "hero-title",
+        heroSubtitle: "hero-subtitle",
+        npm: "btn-npm",
+        github: "btn-github",
+        docs: "btn-docs",
+        f1Title: "f1-title",
+        f1Desc: "f1-desc",
+        f2Title: "f2-title",
+        f2Desc: "f2-desc",
+        f3Title: "f3-title",
+        f3Desc: "f3-desc",
+        codeTitle: "code-title",
+        cliTitle: "cli-title",
+        rulesTitle: "rules-title",
+        r1: "r1",
+        r2: "r2",
+        r3: "r3",
+        footer: "footer"
+      };
+
+      function setLang(lang) {
+        const t = TEXT[lang];
+        Object.keys(ids).forEach((k) => {
+          const el = document.getElementById(ids[k]);
+          if (el) el.textContent = t[k];
+        });
+        document.getElementById("lang-en").classList.toggle("active", lang === "en");
+        document.getElementById("lang-zh").classList.toggle("active", lang === "zh");
+      }
+
+      document.getElementById("lang-en").addEventListener("click", () => setLang("en"));
+      document.getElementById("lang-zh").addEventListener("click", () => setLang("zh"));
+    </script>
+  </body>
+</html>

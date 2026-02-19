@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { htmlToMarkdown, htmlToGfm, htmlToStandardMarkdown, generateFrontmatter } from '@fanly/docsjs-markdown';
+import { htmlToMarkdown } from '@coding01/docsjs-markdown';
 
 const SAMPLE_HTML = `
 <h1>Sample Document</h1>
@@ -45,7 +45,7 @@ function App() {
   return (
     <div style={{ maxWidth: '800px', margin: '0 auto', padding: '20px' }}>
       <h1>docsjs-markdown React Demo</h1>
-      
+
       <div style={{ marginBottom: '20px' }}>
         <label>
           <input
@@ -55,7 +55,7 @@ function App() {
           />
           Include Frontmatter
         </label>
-        
+
         <select
           value={format}
           onChange={e => setFormat(e.target.value as 'gfm' | 'standard')}
@@ -64,14 +64,14 @@ function App() {
           <option value="gfm">GFM (GitHub Flavored)</option>
           <option value="standard">Standard Markdown</option>
         </select>
-        
+
         <button
           onClick={convert}
           style={{ marginLeft: '20px', padding: '8px 16px' }}
         >
           Convert
         </button>
-        
+
         {markdown && (
           <button onClick={download} style={{ marginLeft: '10px', padding: '8px 16px' }}>
             Download
@@ -86,7 +86,7 @@ function App() {
             {html}
           </pre>
         </div>
-        
+
         <div>
           <h3>Markdown Output</h3>
           <pre style={{ background: '#f5f5f5', padding: '10px', overflow: 'auto', maxHeight: '400px' }}>

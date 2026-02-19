@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      '@fanly/docsjs-markdown': '../../src/index.ts'
+      '@coding01/docsjs-markdown': '../../src/index.ts'
     }
   }
 });
