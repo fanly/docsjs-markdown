@@ -27,6 +27,13 @@ Use `@coding01/docsjs` for high-fidelity Word/DOCX import, then feed its HTML sn
 - GitHub: https://github.com/fanly/docsjs
 - Product page: https://docsjs.coding01.cn/
 
+## Landing Page Template Rule
+
+To keep all docsjs ecosystem plugin pages consistent, landing pages follow one shared structure template:
+
+- Spec file: `docs/LANDING_TEMPLATE.md`
+- Concrete page: `docs/index.html`
+
 ## Installation
 
 ```bash

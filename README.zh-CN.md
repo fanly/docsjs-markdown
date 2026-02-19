@@ -27,6 +27,13 @@
 - GitHub: https://github.com/fanly/docsjs
 - 产品页: https://docsjs.coding01.cn/
 
+## 单页模板规范
+
+为了让 docsjs 生态插件页保持统一结构，单页遵循同一模板规范：
+
+- 规范文件：`docs/LANDING_TEMPLATE.md`
+- 实际页面：`docs/index.html`
+
 ## 安装
 
 ```bash
