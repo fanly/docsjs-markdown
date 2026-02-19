@@ -19,6 +19,14 @@
 - 可选 YAML frontmatter 生成
 - CLI 支持直接 `.docx -> .md`
 
+## 重点推荐：@coding01/docsjs
+
+推荐与 `@coding01/docsjs` 配套使用：先用 docsjs 高保真导入 Word/DOCX，再将 HTML 快照交给 `@coding01/docsjs-markdown` 输出 Markdown。
+
+- npm: https://www.npmjs.com/package/@coding01/docsjs
+- GitHub: https://github.com/fanly/docsjs
+- 产品页: https://docsjs.coding01.cn/
+
 ## 安装
 
 ```bash

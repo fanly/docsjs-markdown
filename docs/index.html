@@ -66,6 +66,7 @@
         padding: 18px;
       }
       .section h2 { margin: 0 0 10px; font-size: 22px; }
+      .section p { margin: 0; color: var(--muted); }
       pre {
         margin: 10px 0 0;
         padding: 12px;
@@ -75,11 +76,25 @@
         overflow-x: auto;
         font-size: 13px;
       }
+      .compare-grid {
+        margin-top: 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+      }
+      .compare-col h3 {
+        margin: 0;
+        font-size: 15px;
+      }
+      .compare-col pre {
+        margin-top: 8px;
+      }
       ul { margin: 10px 0 0; padding-left: 18px; color: var(--muted); }
       footer { margin-top: 18px; color: var(--muted); font-size: 13px; }
       @media (max-width: 860px) {
         .grid { grid-template-columns: 1fr; }
         .hero { padding: 24px; }
+        .compare-grid { grid-template-columns: 1fr; }
       }
     </style>
   </head>
@@ -102,6 +117,7 @@
           <a class="btn primary" href="https://www.npmjs.com/package/@coding01/docsjs-markdown" target="_blank" rel="noreferrer" id="btn-npm">View on npm</a>
           <a class="btn ghost" href="https://github.com/fanly/docsjs-markdown" target="_blank" rel="noreferrer" id="btn-github">GitHub</a>
           <a class="btn ghost" href="https://github.com/fanly/docsjs-markdown#readme" target="_blank" rel="noreferrer" id="btn-docs">README</a>
+          <a class="btn ghost" href="https://docsjs.coding01.cn/" target="_blank" rel="noreferrer" id="btn-docsjs">Use with docsjs</a>
         </div>
       </section>
 
@@ -121,12 +137,47 @@
       </div>
 
       <section class="section">
+        <h2 id="rec-title">Recommended Pair: @coding01/docsjs</h2>
+        <p id="rec-desc">Import Word/DOCX with docsjs, then convert the HTML snapshot to Markdown with docsjs-markdown.</p>
+        <div class="actions">
+          <a class="btn ghost" href="https://www.npmjs.com/package/@coding01/docsjs" target="_blank" rel="noreferrer" id="rec-link">Open @coding01/docsjs</a>
+        </div>
+      </section>
+
+      <section class="section">
         <h2 id="code-title">Quick Example</h2>
         <pre><code id="code-block">import { htmlToGfm } from "@coding01/docsjs-markdown";
 import { docxToMarkdown } from "@coding01/docsjs-markdown/docx";
 
 const md = htmlToGfm("&lt;h1&gt;Hello&lt;/h1&gt;");
 const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
+      </section>
+
+      <section class="section">
+        <h2 id="compare-title">Complete Case: docs on Left, Markdown on Right</h2>
+        <p id="compare-subtitle">A practical flow for docsjs + docsjs-markdown integration without pinning package versions.</p>
+        <div class="compare-grid">
+          <div class="compare-col">
+            <h3 id="compare-left">Left: docsjs HTML snapshot</h3>
+            <pre><code>&lt;h1&gt;Release Notes&lt;/h1&gt;
+&lt;p&gt;This quarter we shipped parser, layout and plugin upgrades.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;DOCX semantic fidelity improvements&lt;/li&gt;
+  &lt;li&gt;Table/list rendering parity&lt;/li&gt;
+  &lt;li&gt;Markdown export pipeline&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+          </div>
+          <div class="compare-col">
+            <h3 id="compare-right">Right: markdown output</h3>
+            <pre><code># Release Notes
+
+This quarter we shipped parser, layout and plugin upgrades.
+
+- DOCX semantic fidelity improvements
+- Table/list rendering parity
+- Markdown export pipeline</code></pre>
+          </div>
+        </div>
       </section>
 
       <section class="section">
@@ -154,6 +205,7 @@ const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
           npm: "View on npm",
           github: "GitHub",
           docs: "README",
+          docsjs: "Use with docsjs",
           f1Title: "Dual Entry Design",
           f1Desc: "Use core HTML conversion from main entry, or DOCX conversion from /docx subpath.",
           f2Title: "Rule Plugins",
@@ -166,6 +218,13 @@ const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
           r1: "`main / codex/**` push: run CI quality gate",
           r2: "`v*.*.*` tag push: publish to npm",
           r3: "`docs/**` updates on main: deploy this page to GitHub Pages",
+          recTitle: "Recommended Pair: @coding01/docsjs",
+          recDesc: "Import Word/DOCX with docsjs, then convert the HTML snapshot to Markdown with docsjs-markdown.",
+          recLink: "Open @coding01/docsjs",
+          compareTitle: "Complete Case: docs on Left, Markdown on Right",
+          compareSubtitle: "A practical flow for docsjs + docsjs-markdown integration without pinning package versions.",
+          compareLeft: "Left: docsjs HTML snapshot",
+          compareRight: "Right: markdown output",
           footer: "docsjs-markdown · scoped package for @coding01 ecosystem"
         },
         zh: {
@@ -174,6 +233,7 @@ const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
           npm: "查看 npm",
           github: "GitHub",
           docs: "README",
+          docsjs: "配套 docsjs",
           f1Title: "双入口架构",
           f1Desc: "主入口负责 HTML 转换，/docx 子入口负责 DOCX 转 Markdown。",
           f2Title: "规则插件化",
@@ -186,6 +246,13 @@ const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
           r1: "`main / codex/**` 推送：执行 CI 质量门",
           r2: "`v*.*.*` tag 推送：发布到 npm",
           r3: "`docs/**` 在 main 更新：部署本页到 GitHub Pages",
+          recTitle: "重点推荐：@coding01/docsjs",
+          recDesc: "先用 docsjs 导入 Word/DOCX，再把 HTML 快照交给 docsjs-markdown 输出 Markdown。",
+          recLink: "打开 @coding01/docsjs",
+          compareTitle: "完整案例：左侧 docs，右侧 markdown",
+          compareSubtitle: "docsjs + docsjs-markdown 的标准联动方案，不写死版本号。",
+          compareLeft: "左：docsjs HTML 快照",
+          compareRight: "右：markdown 输出",
           footer: "docsjs-markdown · @coding01 生态专用包"
         }
       };
@@ -196,6 +263,7 @@ const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
         npm: "btn-npm",
         github: "btn-github",
         docs: "btn-docs",
+        docsjs: "btn-docsjs",
         f1Title: "f1-title",
         f1Desc: "f1-desc",
         f2Title: "f2-title",
@@ -208,6 +276,13 @@ const docxMd = await docxToMarkdown(file, { format: "gfm" });</code></pre>
         r1: "r1",
         r2: "r2",
         r3: "r3",
+        recTitle: "rec-title",
+        recDesc: "rec-desc",
+        recLink: "rec-link",
+        compareTitle: "compare-title",
+        compareSubtitle: "compare-subtitle",
+        compareLeft: "compare-left",
+        compareRight: "compare-right",
         footer: "footer"
       };
 

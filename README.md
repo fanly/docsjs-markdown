@@ -19,6 +19,14 @@ Convert docsjs HTML snapshots or DOCX files into Markdown with extensible rules.
 - Optional YAML frontmatter generation
 - CLI for direct `.docx -> .md` conversion
 
+## Recommended Pair: @coding01/docsjs
+
+Use `@coding01/docsjs` for high-fidelity Word/DOCX import, then feed its HTML snapshot into `@coding01/docsjs-markdown` for Markdown output.
+
+- npm: https://www.npmjs.com/package/@coding01/docsjs
+- GitHub: https://github.com/fanly/docsjs
+- Product page: https://docsjs.coding01.cn/
+
 ## Installation
 
 ```bash
