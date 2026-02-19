@@ -343,17 +343,17 @@
     <section class="hero">
       <div class="container">
         <h1 data-i18n="heroTitle">The <span>Markdown</span> Delivery Layer for docsjs</h1>
-        <p data-i18n="heroLead">Convert docsjs HTML snapshots or DOCX into clean markdown for docs sites, knowledge bases, and static publish pipelines.</p>
+        <p data-i18n="heroLead">Turn docsjs snapshots or DOCX into publish-ready Markdown in one flow, with stable output rules for teams and CI.</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="https://www.npmjs.com/package/@coding01/docsjs-markdown" target="_blank" data-i18n="ctaNpm">Get Package</a>
           <a class="btn btn-secondary" href="https://docsjs.coding01.cn/" target="_blank" data-i18n="ctaDocsjs">Use with docsjs</a>
           <a class="btn btn-secondary" href="#showcase" data-i18n="ctaDemo">View Case</a>
         </div>
         <div class="stats-bar">
-          <div class="stat-item"><div class="stat-value">2</div><div class="stat-label" data-i18n="statEntries">Entries</div></div>
-          <div class="stat-item"><div class="stat-value">CLI</div><div class="stat-label" data-i18n="statCli">Ready</div></div>
-          <div class="stat-item"><div class="stat-value">Rule</div><div class="stat-label" data-i18n="statRules">Extensible</div></div>
-          <div class="stat-item"><div class="stat-value">MD</div><div class="stat-label" data-i18n="statOut">Output</div></div>
+          <div class="stat-item"><div class="stat-value">2</div><div class="stat-label" data-i18n="statEntries">Input Paths</div></div>
+          <div class="stat-item"><div class="stat-value">CLI</div><div class="stat-label" data-i18n="statCli">Automation Ready</div></div>
+          <div class="stat-item"><div class="stat-value">Rule</div><div class="stat-label" data-i18n="statRules">Team Style Stable</div></div>
+          <div class="stat-item"><div class="stat-value">MD</div><div class="stat-label" data-i18n="statOut">Publish Output</div></div>
         </div>
       </div>
     </section>
@@ -363,20 +363,20 @@
         <h2 data-i18n="featuresTitle">Why docsjs-markdown?</h2>
         <div class="feature-grid">
           <article class="card">
-            <h3 data-i18n="f1Title">Dual Entry Architecture</h3>
-            <p data-i18n="f1Desc">Main entry for HTML conversion, sub-entry <code>/docx</code> for direct DOCX to markdown conversion.</p>
+            <h3 data-i18n="f1Title">Two Input Paths, One Output Standard</h3>
+            <p data-i18n="f1Desc">Use main entry for HTML and <code>/docx</code> for direct DOCX import, then keep one Markdown standard for your team.</p>
           </article>
           <article class="card">
             <h3 data-i18n="f2Title">Rule-Based Conversion</h3>
-            <p data-i18n="f2Desc">Customize conversion per tag and keep your markdown style guide stable across products.</p>
+            <p data-i18n="f2Desc">Control heading/list/table rendering per tag so docs quality stays consistent across repositories.</p>
           </article>
           <article class="card">
             <h3 data-i18n="f3Title">CLI & Pipeline Friendly</h3>
-            <p data-i18n="f3Desc">Use in CI and batch jobs for consistent markdown generation with optional frontmatter and report metadata.</p>
+            <p data-i18n="f3Desc">Run in CI or batch jobs to generate stable Markdown with optional frontmatter and conversion report metadata.</p>
           </article>
           <article class="card">
             <h3 data-i18n="f4Title">Recommended Pair</h3>
-            <p data-i18n="f4Desc">Combine with <code>@coding01/docsjs</code> to build a full Word/DOCX to markdown publishing chain.</p>
+            <p data-i18n="f4Desc">Use with <code>@coding01/docsjs</code> for import fidelity and <code>@coding01/docsjs-editor</code> for multi-editor processing before publish.</p>
           </article>
         </div>
       </div>
@@ -384,7 +384,7 @@
 
     <section class="showcase" id="showcase">
       <div class="container">
-        <h2 data-i18n="showcaseTitle">Complete Case: Left docs, Right markdown</h2>
+        <h2 data-i18n="showcaseTitle">Complete Case: Left source, Right publish-ready markdown</h2>
         <div class="code-window">
           <div class="code-header"><span class="code-dot"></span><span class="code-dot"></span><span class="code-dot"></span></div>
           <div class="code-content">
@@ -448,7 +448,7 @@ This sprint shipped parser and render upgrades.
 
     <section class="release" id="release">
       <div class="container">
-        <h2 data-i18n="releaseTitle">Release Rules</h2>
+        <h2 data-i18n="releaseTitle">Engineering Trust Signals</h2>
         <div class="release-grid">
           <div class="card"><h3>CI</h3><p data-i18n="r1">Push to <code>main</code>: run verify quality gate.</p></div>
           <div class="card"><h3>npm</h3><p data-i18n="r2">Push tag <code>v*.*.*</code>: publish npm package.</p></div>
@@ -459,13 +459,13 @@ This sprint shipped parser and render upgrades.
 
     <section class="sponsors">
       <div class="container">
-        <h2 data-i18n="ecoTitle">Plugin Ecosystem Template</h2>
-        <p data-i18n="ecoDesc">This page follows docsjs information architecture so future plugin pages can reuse the same structure with different themes.</p>
+        <h2 data-i18n="ecoTitle">Recommended Ecosystem Path</h2>
+        <p data-i18n="ecoDesc">Use docsjs for high-fidelity input, docsjs-editor for multi-editor processing, and docsjs-markdown for final markdown delivery.</p>
         <div class="sponsor-logos">
           <span class="sponsor-logo">@coding01/docsjs</span>
           <span class="sponsor-logo">@coding01/docsjs-markdown</span>
-          <span class="sponsor-logo">Plugin-ready IA</span>
-          <span class="sponsor-logo">Theme-switchable UI</span>
+          <span class="sponsor-logo">@coding01/docsjs-editor</span>
+          <span class="sponsor-logo">Docs Delivery Pipeline</span>
         </div>
       </div>
     </section>
@@ -491,69 +491,69 @@ This sprint shipped parser and render upgrades.
       const i18n = {
         en: {
           heroTitle: "The Markdown Delivery Layer for docsjs",
-          heroLead: "Convert docsjs HTML snapshots or DOCX into clean markdown for docs sites, knowledge bases, and static publish pipelines.",
+          heroLead: "Turn docsjs snapshots or DOCX into publish-ready Markdown in one flow, with stable output rules for teams and CI.",
           ctaNpm: "Get Package",
           ctaDocsjs: "Use with docsjs",
           ctaDemo: "View Case",
-          statEntries: "Entries",
-          statCli: "Ready",
-          statRules: "Extensible",
-          statOut: "Output",
+          statEntries: "Input Paths",
+          statCli: "Automation Ready",
+          statRules: "Team Style Stable",
+          statOut: "Publish Output",
           featuresTitle: "Why docsjs-markdown?",
-          f1Title: "Dual Entry Architecture",
-          f1Desc: "Main entry for HTML conversion, sub-entry /docx for direct DOCX to markdown conversion.",
+          f1Title: "Two Input Paths, One Output Standard",
+          f1Desc: "Use main entry for HTML and /docx for direct DOCX import, then keep one Markdown standard for your team.",
           f2Title: "Rule-Based Conversion",
-          f2Desc: "Customize conversion per tag and keep your markdown style guide stable across products.",
+          f2Desc: "Control heading/list/table rendering per tag so docs quality stays consistent across repositories.",
           f3Title: "CLI & Pipeline Friendly",
-          f3Desc: "Use in CI and batch jobs for consistent markdown generation with optional frontmatter and report metadata.",
+          f3Desc: "Run in CI or batch jobs to generate stable Markdown with optional frontmatter and conversion report metadata.",
           f4Title: "Recommended Pair",
-          f4Desc: "Combine with @coding01/docsjs to build a full Word/DOCX to markdown publishing chain.",
-          showcaseTitle: "Complete Case: Left docs, Right markdown",
+          f4Desc: "Use with @coding01/docsjs for import fidelity and @coding01/docsjs-editor for multi-editor processing before publish.",
+          showcaseTitle: "Complete Case: Left source, Right publish-ready markdown",
           leftTitle: "Left: docsjs HTML snapshot",
           rightTitle: "Right: markdown output",
           apiTitle: "API Reference",
           apiMain: "Main Entry",
           apiDocx: "DOCX Entry",
           apiCli: "CLI",
-          releaseTitle: "Release Rules",
+          releaseTitle: "Engineering Trust Signals",
           r1: "Push to main: run verify quality gate.",
           r2: "Push tag v*.*.*: publish npm package.",
           r3: "Update docs/** on main: deploy landing page.",
-          ecoTitle: "Plugin Ecosystem Template",
-          ecoDesc: "This page follows docsjs information architecture so future plugin pages can reuse the same structure with different themes."
+          ecoTitle: "Recommended Ecosystem Path",
+          ecoDesc: "Use docsjs for high-fidelity input, docsjs-editor for multi-editor processing, and docsjs-markdown for final markdown delivery."
         },
         zh: {
           heroTitle: "docsjs 的 Markdown 交付层",
-          heroLead: "将 docsjs 的 HTML 快照或 DOCX 转为高质量 markdown，用于文档站、知识库与静态发布链路。",
+          heroLead: "将 docsjs 快照或 DOCX 一次性转换为可发布 Markdown，并通过规则保证团队与 CI 输出一致。",
           ctaNpm: "查看包",
           ctaDocsjs: "配套 docsjs",
           ctaDemo: "查看案例",
-          statEntries: "入口",
-          statCli: "命令行",
-          statRules: "可扩展",
-          statOut: "输出",
+          statEntries: "输入路径",
+          statCli: "自动化就绪",
+          statRules: "团队规范稳定",
+          statOut: "发布输出",
           featuresTitle: "为什么用 docsjs-markdown？",
-          f1Title: "双入口架构",
-          f1Desc: "主入口负责 HTML 转换，/docx 子入口支持直接 DOCX 转 markdown。",
+          f1Title: "双输入入口，统一输出标准",
+          f1Desc: "主入口处理 HTML，/docx 入口直转 DOCX，最终统一为团队 Markdown 标准。",
           f2Title: "规则驱动转换",
-          f2Desc: "按标签覆写转换逻辑，确保各产品 markdown 规范一致。",
+          f2Desc: "按标签控制标题/列表/表格等转换，保证多仓库文档质量一致。",
           f3Title: "CLI 与流水线友好",
-          f3Desc: "支持 CI 和批处理，稳定生成 markdown，可选 frontmatter 与解析报告。",
+          f3Desc: "可在 CI 与批处理中稳定产出 Markdown，并支持 frontmatter 与转换报告。",
           f4Title: "重点推荐搭配",
-          f4Desc: "与 @coding01/docsjs 联动，构建完整 Word/DOCX 到 markdown 发布链路。",
-          showcaseTitle: "完整案例：左 docs，右 markdown",
+          f4Desc: "与 @coding01/docsjs 组成高保真导入链路，并可结合 @coding01/docsjs-editor 完成多编辑器处理后发布。",
+          showcaseTitle: "完整案例：左侧源内容，右侧可发布 Markdown",
           leftTitle: "左：docsjs HTML 快照",
           rightTitle: "右：markdown 输出",
           apiTitle: "API 参考",
           apiMain: "主入口",
           apiDocx: "DOCX 入口",
           apiCli: "命令行",
-          releaseTitle: "发布规则",
+          releaseTitle: "工程可信信号",
           r1: "推送到 main：执行 verify 质量门。",
           r2: "推送 tag v*.*.*：发布 npm 包。",
           r3: "main 分支更新 docs/**：部署单页。",
-          ecoTitle: "插件生态模板",
-          ecoDesc: "本页采用 docsjs 同一信息架构，后续插件页可复用结构，仅替换主题视觉。"
+          ecoTitle: "推荐生态路径",
+          ecoDesc: "docsjs 负责高保真输入，docsjs-editor 负责多编辑器处理，docsjs-markdown 负责最终 Markdown 交付。"
         }
       };
 
